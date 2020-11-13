@@ -1,0 +1,25 @@
+<%- include('partials/header'); -%>
+
+<h2>Home</h2>
+
+<p><%= homeStartingContent %></p>
+
+
+<%	posts.forEach(function(post) { %>
+
+
+		<h1><%= post.name %></h1>
+
+		<p>
+			<%= post.post.slice(0,100) + "..." %>
+
+			<%# <!-- Since the post URL is based on post.name not on post._id it would be nice to notify the user if he has already used the title for another post--> %>
+			
+			<a href= "/posts/<%= post.name.replace(/ /g,"-") %>" target="_blank">Read More</a>
+		</p>
+
+		
+
+<% }); %>
+
+<%- include('partials/footer'); -%>
